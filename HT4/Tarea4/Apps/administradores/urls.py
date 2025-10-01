@@ -28,6 +28,7 @@ urlpatterns = [
     path('administ/', views.ListarAdministradores, name='adminapp'),
     path('crear_autorizador/', CrearAdmin.as_view(), name='crearadminapp'),
     path('editar_admin/<int:pk>', EditarAdmin.as_view(), name='editaradminapp'),
+    path('ver_admin/<int:pk>', views.VerAdmin.as_view(), name='veradminapp'),
     path('estudiantes/', views.ListarEstudiantes, name='estudiantesapp'),
     path('crear_estudiante/', CrearEstudiante.as_view(), name='crearestapp'),
     path('editar_estudiante/<int:pk>', EditarEstudiante.as_view(), name='editarestapp'),
@@ -36,5 +37,6 @@ urlpatterns = [
     path('publicaciones/', views.ListarPublicaciones, name='publiapp'),
     path('crear_publicacion/', CrearPublicaion.as_view(), name='crearpubliapp'),
     path('editar_publicacion/<int:pk>', EditarPublicacion.as_view(), name='editarpubliapp'),
+    path('ver_publicacion/<int:pk>', views.VerPublicacion.as_view(), name='verpubliapp'),
     path('', HomeView.as_view(), name='homeapp'),
 ]

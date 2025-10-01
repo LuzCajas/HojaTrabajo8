@@ -49,6 +49,12 @@ class EditarAdmin(UpdateView):
     model = Administrador   
     success_url = reverse_lazy('administradores:adminapp')
 
+class VerAdmin(DetailView):
+    template_name = 'ver_admin.html'
+    form_class = AdministradorForm
+    model = Administrador
+    success_url = reverse_lazy('administradores:adminapp')
+
 class CrearPublicaion(CreateView):
     template_name = 'crear_publi.html'
     form_class = PublicacionForm
@@ -56,6 +62,12 @@ class CrearPublicaion(CreateView):
 
 class EditarPublicacion(UpdateView):
     template_name = 'editar_publi.html'
+    form_class = PublicacionForm
+    model = Publicacion
+    success_url = reverse_lazy('administradores:publiapp')
+
+class VerPublicacion(DetailView):
+    template_name = 'ver_publi.html'
     form_class = PublicacionForm
     model = Publicacion
     success_url = reverse_lazy('administradores:publiapp')

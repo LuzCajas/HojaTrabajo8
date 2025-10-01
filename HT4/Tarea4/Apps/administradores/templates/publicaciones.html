@@ -17,11 +17,12 @@
           <tr>
               <td>{{ publicacion.titulo }}</td>
               <td>{{ publicacion.fecha }}</td>
-              <td>{{ publicacion.contenido }}</td>
+              <td>{{ publicacion.contenido|truncatechars:30}}</td>
               <td>{{ publicacion.escritor.nombre }} {{ publicacion.escritor.apellido }}</td>
               <td>{{ publicacion.autorizado.nombre }} {{ publicacion.autorizado.apellido }}</td>
               <td>
                   <a href="{% url 'administradores:editarpubliapp' publicacion.id %}" class="btn btn-sm btn-warning">Editar</a>
+                  <a href="{% url 'administradores:verpubliapp' publicacion.id %}" class="btn btn-sm btn-warning">Detalle</a>
               </td>
           </tr>
           {% empty %}

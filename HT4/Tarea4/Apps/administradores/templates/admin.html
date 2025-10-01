@@ -20,6 +20,7 @@
                 <td>{{ administrador.ciudad }}</td>
                 <td>
                     <a href="{% url 'administradores:editaradminapp' administrador.id %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'administradores:veradminapp' administrador.id %}" class="btn btn-sm btn-warning">Detalle</a>
                 </td>
             </tr>
             {% empty %}
@@ -29,5 +30,5 @@
             {% endfor %}
     </tbody>
   </table>
-  <a href="{% url 'administradores:crearadminapp' %}">+ Agregar Administrador</a>
+  <a href="{% url 'administradores:crearadminapp' %}">+ Agregar Autorizador</a>
 {% endblock %}
