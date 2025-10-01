@@ -8,6 +8,7 @@
       <th>Apellido</th>
       <th>Edad</th>
       <th>Ciudad</th>
+      <th>Acciones</th>
     </tr>
     </thead>
         <tbody>
@@ -17,6 +18,10 @@
                 <td>{{ estudiante.apellido }}</td>
                 <td>{{ estudiante.edad }}</td>
                 <td>{{ estudiante.ciudad }}</td>
+                <td>
+                    <a href="{% url 'administradores:editarestapp' estudiante.id %}" class="btn btn-sm btn-warning">Editar</a>
+                    <a href="{% url 'administradores:verestapp' estudiante.id %}" class="btn btn-sm btn-warning">Detalle</a>
+                </td>               
             </tr>
             {% empty %}
             <tr>

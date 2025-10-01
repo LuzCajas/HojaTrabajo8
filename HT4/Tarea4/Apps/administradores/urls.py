@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import path, include
 from Apps.administradores import views
 from .views import AcercaView
-from .views import CrearEstudiante, CrearAdmin, CrearPublicaion
+from .views import CrearEstudiante, CrearAdmin, CrearPublicaion, EditarEstudiante, EditarAdmin, EditarPublicacion
 from Apps.home.views import HomeView
 
 
@@ -27,10 +27,14 @@ app_name = 'administradores'
 urlpatterns = [
     path('administ/', views.ListarAdministradores, name='adminapp'),
     path('crear_autorizador/', CrearAdmin.as_view(), name='crearadminapp'),
+    path('editar_admin/<int:pk>', EditarAdmin.as_view(), name='editaradminapp'),
     path('estudiantes/', views.ListarEstudiantes, name='estudiantesapp'),
     path('crear_estudiante/', CrearEstudiante.as_view(), name='crearestapp'),
+    path('editar_estudiante/<int:pk>', EditarEstudiante.as_view(), name='editarestapp'),
+    path('ver_estudiante/<int:pk>', views.VerEstudiante.as_view(), name='verestapp'),
     path('acerca/', AcercaView.as_view(), name='acercasapp'),
     path('publicaciones/', views.ListarPublicaciones, name='publiapp'),
     path('crear_publicacion/', CrearPublicaion.as_view(), name='crearpubliapp'),
+    path('editar_publicacion/<int:pk>', EditarPublicacion.as_view(), name='editarpubliapp'),
     path('', HomeView.as_view(), name='homeapp'),
 ]

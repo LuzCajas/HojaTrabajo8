@@ -9,6 +9,7 @@
       <th>Contenido</th>
       <th>Escritor</th>
       <th>Autorizador</th>
+      <th>Acciones</th>
     </tr>
     </thead>
     <tbody>
@@ -19,6 +20,9 @@
               <td>{{ publicacion.contenido }}</td>
               <td>{{ publicacion.escritor.nombre }} {{ publicacion.escritor.apellido }}</td>
               <td>{{ publicacion.autorizado.nombre }} {{ publicacion.autorizado.apellido }}</td>
+              <td>
+                  <a href="{% url 'administradores:editarpubliapp' publicacion.id %}" class="btn btn-sm btn-warning">Editar</a>
+              </td>
           </tr>
           {% empty %}
           <tr>
@@ -29,3 +33,4 @@
 </table>
 <a href="{% url 'administradores:crearpubliapp' %}">+ Agregar Publicacion</a>
 {% endblock %}
+

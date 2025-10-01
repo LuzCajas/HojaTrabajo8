@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView, CreateView
+from django.views.generic import TemplateView, CreateView, UpdateView, DetailView
 from .models import Administrador, Estudiante, Publicacion
 from .forms import EstudianteForm, AdministradorForm, PublicacionForm
 from django.urls import reverse_lazy
@@ -28,12 +28,34 @@ class CrearEstudiante(CreateView):
     form_class = EstudianteForm
     success_url = reverse_lazy('administradores:estudiantesapp')
 
+class EditarEstudiante(UpdateView):
+    template_name = 'editar_est.html'
+    form_class = EstudianteForm
+    model = Estudiante
+    success_url = reverse_lazy('administradores:estudiantesapp')
+
+class VerEstudiante(DetailView):
+    template_name = 'ver_est.html'
+    model = Estudiante
+
 class CrearAdmin(CreateView):
     template_name = 'crear_admin.html'
     form_class = AdministradorForm
     success_url = reverse_lazy('administradores:adminapp')
 
+class EditarAdmin(UpdateView):
+    template_name = 'editar_admin.html'
+    form_class = AdministradorForm
+    model = Administrador   
+    success_url = reverse_lazy('administradores:adminapp')
+
 class CrearPublicaion(CreateView):
     template_name = 'crear_publi.html'
     form_class = PublicacionForm
+    success_url = reverse_lazy('administradores:publiapp')
+
+class EditarPublicacion(UpdateView):
+    template_name = 'editar_publi.html'
+    form_class = PublicacionForm
+    model = Publicacion
     success_url = reverse_lazy('administradores:publiapp')

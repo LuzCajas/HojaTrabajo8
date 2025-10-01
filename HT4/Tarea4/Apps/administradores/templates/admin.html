@@ -8,6 +8,7 @@
         <th>Apellido</th>
         <th>Rol</th>
         <th>Ciudad</th>
+        <th>Acciones</th>
       </tr>
     </thead>
       <tbody>
@@ -17,6 +18,9 @@
                 <td>{{ administrador.apellido }}</td>
                 <td>{{ administrador.rol }}</td>
                 <td>{{ administrador.ciudad }}</td>
+                <td>
+                    <a href="{% url 'administradores:editaradminapp' administrador.id %}" class="btn btn-sm btn-warning">Editar</a>
+                </td>
             </tr>
             {% empty %}
             <tr>
